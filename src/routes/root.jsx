@@ -1,15 +1,17 @@
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet, NavLink, Link } from 'react-router-dom';
 
 export default function Root() {
   return (
     <>
       <div id="sidebar">
-        <h1>Fake Shop</h1>
+        <Link to={'/'} className="home-link">
+          <h1>Fake Shop</h1>
+        </Link>
         <nav>
           <ul>
             <li>
               <NavLink
-                to={'home'}
+                to={'/'}
                 className={({ isActive, isPending }) =>
                   isActive ? 'active' : isPending ? 'pending' : ''
                 }

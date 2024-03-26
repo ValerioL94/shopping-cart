@@ -30,6 +30,12 @@ i {
   width: 300px;
   background-color: lightblue;
 }
+
+#sidebar > .home-link {
+  text-decoration: none;
+  text-align: center;
+  color: inherit;
+}
 #sidebar nav {
   flex: 1;
   overflow: auto;
@@ -84,7 +90,7 @@ i {
 
 #content {
   flex: 1;
-  /* width: 100%; */
+  width: 100%;
   padding: 2rem 4rem;
 }
 
