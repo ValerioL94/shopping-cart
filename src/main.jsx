@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ErrorPage from '../error-page.jsx';
+import ErrorPage from './routes/error-page.jsx';
 import Root from './routes/root.jsx';
 import Home from './routes/home.jsx';
 import Shop from './routes/shop.jsx';
@@ -11,7 +11,7 @@ import Cart from './routes/cart.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    Element: <Root />,
+    element: <Root />,
     errorElement: <ErrorPage />,
     children: [
       {

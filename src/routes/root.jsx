@@ -5,16 +5,15 @@ export default function Root() {
     <>
       <div id="sidebar">
         <h1>Fake Shop</h1>
-
         <nav>
           <ul>
             <li>
-              <NavLink>
+              <NavLink
                 to={'home'}
-                className=
-                {({ isActive, isPending }) =>
+                className={({ isActive, isPending }) =>
                   isActive ? 'active' : isPending ? 'pending' : ''
                 }
+              >
                 Home
               </NavLink>
             </li>
