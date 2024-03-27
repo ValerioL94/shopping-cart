@@ -9,7 +9,7 @@ export default function Shop() {
       <h1>Shop page</h1>
       <div className="cards-container">
         {products.map((product) => (
-          <div key={product.id} className="card">
+          <div key={product.id} className="card" tabIndex={0}>
             <img
               src={product.image}
               alt="product.description"

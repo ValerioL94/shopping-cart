@@ -1,25 +1,35 @@
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 50px;
 }
 
 .card {
   display: grid;
-  grid-template-rows: 200px auto 50px;
-  border: 1px solid;
+  grid-template-rows: 250px auto 50px;
   border-radius: 10px;
   width: 250px;
   padding: 10px;
+  box-shadow: 1px 1px 5px 1px grey;
+  transition: transform 0.1s linear;
+}
+.card:hover,
+.card:focus {
+  transform: scale(1.1);
 }
 .cardImage {
-  height: 200px;
-  width: 200px;
+  max-height: 250px;
+  max-width: 250px;
+  align-self: center;
+  justify-self: center;
 }
 
 .cardTitle {
   font-size: 18px;
 }
 
-.card.Price {
+.cardPrice {
+  color: green;
+  font-weight: bold;
+  justify-self: end;
 }
