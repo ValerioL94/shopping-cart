@@ -7,6 +7,7 @@ import Root from './routes/root.jsx';
 import Home from './routes/home.jsx';
 import Shop from './routes/shop.jsx';
 import Cart from './routes/cart.jsx';
+import { productsLoader } from '../loader.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
           {
             path: 'shop',
             element: <Shop />,
+            loader: productsLoader,
           },
           {
             path: 'cart',

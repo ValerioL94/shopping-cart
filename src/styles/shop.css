@@ -3,10 +3,6 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-.cards-container img {
-  height: 200px;
-  width: 200px;
-}
 
 .card {
   display: grid;
@@ -15,4 +11,15 @@
   border-radius: 10px;
   width: 250px;
   padding: 10px;
+}
+.cardImage {
+  height: 200px;
+  width: 200px;
+}
+
+.cardTitle {
+  font-size: 18px;
+}
+
+.card.Price {
 }
