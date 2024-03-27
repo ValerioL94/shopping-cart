@@ -47,6 +47,13 @@ i {
 #sidebar nav .active i {
   color: inherit;
 }
+#sidebar nav img {
+  height: 30px;
+  width: 30px;
+}
+#sidebar nav .active img {
+  filter: invert();
+}
 
 #sidebar ul {
   padding: 0;
