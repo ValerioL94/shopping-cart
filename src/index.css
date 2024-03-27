@@ -1,14 +1,21 @@
 html,
 body {
-  height: 100%;
   margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+  width: 100%;
 }
 
 body {
+  min-height: 100%;
+  min-width: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #root {
+  height: 100%;
   width: 100%;
   display: flex;
 }
@@ -18,35 +25,39 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
   width: 100%;
 }
 
 i {
-  color: #818181;
+  color: red;
 }
 
 #sidebar {
   height: 100vh;
   width: 300px;
-  background-color: lightblue;
+  background-color: rgb(154, 215, 236);
   position: sticky;
   top: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px 3px black;
 }
 
 #sidebar > .home-link {
-  text-decoration: none;
+  font-size: 1.5rem;
   text-align: center;
-  color: inherit;
+  text-decoration: none;
+  color: hsl(224, 98%, 58%);
+  text-shadow: 3px 3px 3px black;
 }
+
 #sidebar nav {
   flex: 1;
   overflow: auto;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 }
 
-#sidebar nav .active i {
-  color: inherit;
-}
 #sidebar nav img {
   height: 30px;
   width: 30px;
@@ -62,45 +73,40 @@ i {
 }
 
 #sidebar li {
-  margin: 0.25rem 0;
+  margin: 1.5rem 0;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 #sidebar nav a {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-  white-space: pre;
+  justify-content: center;
   padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 10px;
   color: inherit;
+  gap: 10px;
   text-decoration: none;
-  gap: 1rem;
+}
+nav a > span {
+  width: 70px;
 }
 #sidebar nav a:hover {
-  background: #e3e3e3;
-}
-
-#sidebar nav a.active span {
-  color: inherit;
-}
-
-#sidebar nav .active i {
-  color: inherit;
+  background: white;
 }
 
 #sidebar nav a.active {
-  background: hsl(224, 98%, 58%);
+  background: rgb(43, 99, 253);
   color: white;
 }
 
 #sidebar nav a.pending {
-  color: hsl(224, 98%, 58%);
+  color: rgb(43, 99, 253);
 }
 
 #content {
   flex: 1;
+  min-height: 100%;
   width: 100%;
-  padding: 2rem 4rem;
 }
 
 #content.loading {

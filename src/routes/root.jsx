@@ -17,8 +17,8 @@ export default function Root() {
                   isActive ? 'active' : isPending ? 'pending' : ''
                 }
               >
+                <span>Home</span>
                 <img src="/assets/icons/icons8-home-48.png" alt="" />
-                Home
               </NavLink>
             </li>
             <li>
@@ -28,8 +28,8 @@ export default function Root() {
                   isActive ? 'active' : isPending ? 'pending' : ''
                 }
               >
+                <span>Shop</span>
                 <img src="/assets/icons/icons8-shopping-bag-48.png" alt="" />
-                Shop
               </NavLink>
             </li>
             <li>
@@ -39,8 +39,8 @@ export default function Root() {
                   isActive ? 'active' : isPending ? 'pending' : ''
                 }
               >
+                <span>Cart</span>
                 <img src="assets/icons/icons8-cart-48.png" alt="" />
-                Cart
               </NavLink>
             </li>
           </ul>
