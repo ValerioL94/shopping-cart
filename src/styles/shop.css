@@ -21,15 +21,17 @@
 .card {
   display: grid;
   gap: 10px;
-  grid-template-rows: 200px auto 50px;
+  grid-template-rows: 200px auto 30px;
   border-radius: 10px;
   width: 250px;
-  min-width: 150px;
   padding: 10px;
   background-color: white;
   box-shadow: 1px 1px 5px 1px black;
   cursor: pointer;
   transition: transform 0.1s linear;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 }
 .card:hover,
 .card:focus {
@@ -38,12 +40,10 @@
 .cardImage {
   max-height: 200px;
   max-width: 200px;
-  align-self: center;
-  justify-self: center;
 }
 
 .cardTitle {
-  margin: 0;
+  margin: 0 25px;
   font-size: 18px;
 }
 
@@ -51,10 +51,14 @@
   color: green;
   font-weight: bold;
   justify-self: end;
+  margin: 0 25px;
 }
 
 @media screen and (max-width: 420px) {
   .card {
     width: 200px;
   }
+  /* .cardImage {
+    max-width: 150px;
+  } */
 }
