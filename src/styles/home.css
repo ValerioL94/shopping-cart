@@ -1,6 +1,7 @@
-#home {
+#home-page {
   height: 100%;
-  background-image: url('/public/assets/images/shopping-mall.jpg');
+  padding: 0 1rem;
+  background-image: url('/assets/images/shopping-mall.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -9,7 +10,7 @@
   justify-content: center;
 }
 
-#home > h1 {
+#home-page > h1 {
   text-align: center;
   font-size: 3rem;
   color: white;

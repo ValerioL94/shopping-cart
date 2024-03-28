@@ -45,6 +45,24 @@ export default function Root() {
             </li>
           </ul>
         </nav>
+        <div className="footer">
+          <div className="empty-links">
+            <Link to={'/'}>About</Link>
+            <Link to={'/'}>Contact us</Link>
+            <Link to={'/'}>Terms</Link>
+            <Link to={'/'}>Help</Link>
+          </div>
+          <div className="github-link">
+            <p>Copyright © 2024 ValerioL94</p>
+            <a href="https://github.com/ValerioL94">
+              <img
+                className="github-logo"
+                src="/assets/icons/github-mark.svg"
+                alt="github logo"
+              />
+            </a>
+          </div>
+        </div>
       </div>
       <div
         id="content"

@@ -2,7 +2,7 @@ import '../styles/home.css';
 
 export default function Home() {
   return (
-    <div id="home">
+    <div id="home-page">
       <h1>
         &quot;You need it? We have it.&quot;
         <br />

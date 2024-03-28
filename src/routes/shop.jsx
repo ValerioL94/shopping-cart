@@ -5,7 +5,7 @@ export default function Shop() {
   const { products } = useLoaderData();
 
   return (
-    <div>
+    <div id="shop-page">
       <h1>Shop page</h1>
       <div className="cards-container">
         {products.map((product) => (
