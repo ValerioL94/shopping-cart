@@ -1,12 +1,20 @@
-import { useLoaderData } from 'react-router-dom';
 import '../styles/shop.css';
+import { useLoaderData, Form } from 'react-router-dom';
 
 export default function Shop() {
   const { products } = useLoaderData();
 
   return (
     <div id="shop-page">
-      <div className="cards-container">
+      <div>
+        <Form id="search-form" role="search">
+          <input id="search-bar" type="search" />
+          <select name="categories" id="categories">
+            <option value="">All</option>
+          </select>
+        </Form>
+      </div>
+      <div id="cards-container">
         {products.map((product) => (
           <div key={product.id} className="card" tabIndex={0}>
             <img
