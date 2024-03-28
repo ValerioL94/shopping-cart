@@ -6,7 +6,6 @@ export default function Shop() {
 
   return (
     <div id="shop-page">
-      <h1>Shop page</h1>
       <div className="cards-container">
         {products.map((product) => (
           <div key={product.id} className="card" tabIndex={0}>
