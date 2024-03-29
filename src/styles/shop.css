@@ -25,7 +25,7 @@ html {
   gap: 10px;
   background-color: rgba(91, 112, 159, 255);
 }
-#search-bar {
+#search-form > input {
   border-radius: 5px;
   border: 1px solid rgba(91, 112, 159, 255);
   font-size: 20px;
@@ -36,7 +36,7 @@ html {
   min-width: 100px;
 }
 
-select {
+#search-form > select {
   flex: 1;
   font-size: 20px;
   max-width: fit-content;

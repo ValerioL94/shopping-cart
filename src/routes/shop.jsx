@@ -4,13 +4,30 @@ import { useState } from 'react';
 
 export default function Shop() {
   const { products } = useLoaderData();
-  const categories = [...new Set(products.map((item) => item.category))];
+  const categories = [...new Set(products.map((product) => product.category))];
   const [category, setCategory] = useState('');
+  const [query, setQuery] = useState('');
+
+  function filterSearch(product) {
+    if (product.title.toLowerCase().includes(query.toLowerCase()))
+      return product;
+  }
+
   return (
     <div id="shop-page">
       <div>
         <Form id="search-form" role="search">
-          <input id="search-bar" type="search" />
+          <input
+            id="search-bar"
+            type="search"
+            aria-label="search products"
+            placeholder="Search"
+            name="search-bar"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+          />
           <select
             name="categories"
             id="categories"
@@ -30,17 +47,19 @@ export default function Shop() {
         {(category
           ? products.filter((product) => product.category === category)
           : products
-        ).map((item) => (
-          <div key={item.id} className="card" tabIndex={0}>
-            <img
-              src={item.image}
-              alt={item.description}
-              className="cardImage"
-            />
-            <h2 className="cardTitle">{item.title}</h2>
-            <p className="cardPrice">${item.price}</p>
-          </div>
-        ))}
+        )
+          .filter(filterSearch)
+          .map((product) => (
+            <div key={product.id} className="card" tabIndex={0}>
+              <img
+                src={product.image}
+                alt={product.description}
+                className="cardImage"
+              />
+              <h2 className="cardTitle">{product.title}</h2>
+              <p className="cardPrice">${product.price}</p>
+            </div>
+          ))}
       </div>
     </div>
   );
