@@ -17,7 +17,7 @@ export default function Shop() {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="">all</option>
+            <option value="">all products</option>
             {categories.map((category) => (
               <option key={category} value={category}>
                 {category}
@@ -27,32 +27,20 @@ export default function Shop() {
         </Form>
       </div>
       <div id="cards-container">
-        {!category &&
-          products.map((product) => (
-            <div key={product.id} className="card" tabIndex={0}>
-              <img
-                src={product.image}
-                alt="product.description"
-                className="cardImage"
-              />
-              <h2 className="cardTitle">{product.title}</h2>
-              <p className="cardPrice">${product.price}</p>
-            </div>
-          ))}
-        {category &&
-          products
-            .filter((product) => product.category === category)
-            .map((product) => (
-              <div key={product.id} className="card" tabIndex={0}>
-                <img
-                  src={product.image}
-                  alt="product.description"
-                  className="cardImage"
-                />
-                <h2 className="cardTitle">{product.title}</h2>
-                <p className="cardPrice">${product.price}</p>
-              </div>
-            ))}
+        {(category
+          ? products.filter((product) => product.category === category)
+          : products
+        ).map((item) => (
+          <div key={item.id} className="card" tabIndex={0}>
+            <img
+              src={item.image}
+              alt={item.description}
+              className="cardImage"
+            />
+            <h2 className="cardTitle">{item.title}</h2>
+            <p className="cardPrice">${item.price}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
