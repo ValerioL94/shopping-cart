@@ -1,4 +1,4 @@
-const getProducts = async (url) => {
+const fetchData = async (url) => {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`HTTP error: Status ${response.status}`);
@@ -6,13 +6,20 @@ const getProducts = async (url) => {
   return response.json();
 };
 
-const fetchData = async () => {
+export async function getProducts() {
   try {
-    const data = await getProducts('https://fakestoreapi.com/products');
-    return data;
+    const products = await fetchData('https://fakestoreapi.com/products');
+    return products;
   } catch (err) {
     throw new Error(err.message);
   }
-};
+}
 
-export default fetchData;
+export async function getProduct(id) {
+  try {
+    const product = await fetchData('https://fakestoreapi.com/products/' + id);
+    return product;
+  } catch (err) {
+    throw new Error(err.message);
+  }
+}

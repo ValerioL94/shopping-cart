@@ -18,7 +18,7 @@ export default function Root() {
                 }
               >
                 <span>Home</span>
-                <img src="/assets/icons/icons8-home-48.png" alt="" />
+                <img src="/assets/icons/icons8-home-48.png" alt="home" />
               </NavLink>
             </li>
             <li>
@@ -29,7 +29,10 @@ export default function Root() {
                 }
               >
                 <span>Shop</span>
-                <img src="/assets/icons/icons8-shopping-bag-48.png" alt="" />
+                <img
+                  src="/assets/icons/icons8-shopping-bag-48.png"
+                  alt="shopping bag"
+                />
               </NavLink>
             </li>
             <li>
@@ -40,7 +43,7 @@ export default function Root() {
                 }
               >
                 <span>Cart</span>
-                <img src="assets/icons/icons8-cart-48.png" alt="" />
+                <img src="/assets/icons/icons8-cart-48.png" alt="cart" />
               </NavLink>
             </li>
           </ul>

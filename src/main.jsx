@@ -7,7 +7,8 @@ import Root from './routes/root.jsx';
 import Home from './routes/home.jsx';
 import Shop from './routes/shop.jsx';
 import Cart from './routes/cart.jsx';
-import { productsLoader } from '../loader.jsx';
+import { productsLoader, productLoader } from '../loader.jsx';
+import Product from './routes/product.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
             path: 'shop',
             element: <Shop />,
             loader: productsLoader,
+          },
+          {
+            path: 'shop/:productId',
+            element: <Product />,
+            loader: productLoader,
           },
           {
             path: 'cart',

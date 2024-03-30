@@ -1,5 +1,5 @@
 import '../styles/shop.css';
-import { useLoaderData, Form } from 'react-router-dom';
+import { useLoaderData, Form, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function Shop() {
@@ -11,6 +11,9 @@ export default function Shop() {
   function filterSearch(product) {
     if (product.title.toLowerCase().includes(query.toLowerCase()))
       return product;
+  }
+  function titleCase(string) {
+    return string[0].toUpperCase() + string.slice(1).toLowerCase();
   }
 
   return (
@@ -34,10 +37,10 @@ export default function Shop() {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="">all products</option>
+            <option value="all">All</option>
             {categories.map((category) => (
               <option key={category} value={category}>
-                {category}
+                {titleCase(category)}
               </option>
             ))}
           </select>
@@ -51,13 +54,15 @@ export default function Shop() {
           .filter(filterSearch)
           .map((product) => (
             <div key={product.id} className="card" tabIndex={0}>
-              <img
-                src={product.image}
-                alt={product.description}
-                className="cardImage"
-              />
-              <h2 className="cardTitle">{product.title}</h2>
-              <p className="cardPrice">${product.price}</p>
+              <NavLink to={`${product.id}`}>
+                <img
+                  src={product.image}
+                  alt={product.description}
+                  className="cardImage"
+                />
+                <h2 className="cardTitle">{product.title}</h2>
+                <p className="cardPrice">${product.price}</p>
+              </NavLink>
             </div>
           ))}
       </div>

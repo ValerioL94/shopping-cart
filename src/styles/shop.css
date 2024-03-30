@@ -53,7 +53,7 @@ html {
   gap: 25px;
 }
 
-.card {
+.card a {
   display: grid;
   gap: 10px;
   grid-template-rows: 200px auto 30px;
@@ -69,9 +69,11 @@ html {
   align-items: center;
   justify-content: center;
   justify-items: center;
+  text-decoration: none;
+  color: inherit;
 }
-.card:hover,
-.card:focus {
+.card a:hover,
+.card a:focus {
   transform: scale(1.03);
   border: 1px solid rgba(91, 112, 159, 255);
   outline: 1px solid rgba(91, 112, 159, 255);
@@ -98,7 +100,7 @@ html {
   #cards-container {
     padding: 50px 0;
   }
-  .card {
+  .card a {
     width: 200px;
   }
   #search-form {
