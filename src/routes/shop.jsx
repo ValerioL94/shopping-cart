@@ -69,13 +69,3 @@ export default function Shop() {
     </div>
   );
 }
-
-/* 
-category 
-description
-id
-image
-price
-rating: {count: 120 rate: 3.9}
-title 
-*/

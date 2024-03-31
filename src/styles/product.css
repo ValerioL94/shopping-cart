@@ -1,11 +1,85 @@
+#product-page {
+  height: 100%;
+  background-color: rgba(230, 196, 150, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 #product {
   display: flex;
   flex-direction: column;
-
-  height: 500px;
-  width: 500px;
+  min-height: 300px;
+  min-width: 200px;
+  max-width: 600px;
+  padding: 15px;
+  border: 1px solid rgba(91, 112, 159, 255);
+  box-shadow: 1px 1px 5px 1px rgba(91, 112, 159, 255);
+  border-radius: 10px;
+  background-color: white;
+  box-sizing: border-box;
 }
 #product img {
-  height: 200px;
-  width: 200px;
+  align-self: center;
+  max-height: 400px;
+  max-width: 400px;
+}
+
+#product .title {
+  font-size: 1.5rem;
+}
+#product .description {
+  font-size: 1.25rem;
+}
+.details-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 15px auto;
+}
+
+.details-wrapper h3 {
+  margin: 0;
+}
+.rate span {
+  color: goldenrod;
+}
+.count a {
+  color: blue;
+}
+
+.price span {
+  color: green;
+}
+
+.form-wrapper form {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.form-wrapper input,
+.form-wrapper button {
+  border: 2px solid rgba(91, 112, 159, 255);
+  outline-color: rgba(91, 112, 159, 255);
+  border-radius: 10px;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color linear 0.2s;
+}
+.form-wrapper button:hover,
+.form-wrapper button:focus {
+  background-color: rgba(230, 196, 150, 255);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  #product img {
+    max-height: 250px;
+    max-width: 250px;
+  }
 }
