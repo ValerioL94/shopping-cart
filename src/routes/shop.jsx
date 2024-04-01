@@ -1,43 +1,46 @@
 import '../styles/shop.css';
-import { useLoaderData, Form, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useLoaderData, Form, NavLink, useSubmit } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function Shop() {
-  const { products } = useLoaderData();
-  const categories = [...new Set(products.map((product) => product.category))];
-  const [category, setCategory] = useState('');
-  const [query, setQuery] = useState('');
+  const { products, categories, q } = useLoaderData();
+  const submit = useSubmit();
 
-  function filterSearch(product) {
-    if (product.title.toLowerCase().includes(query.toLowerCase()))
-      return product;
-  }
   function titleCase(string) {
     return string[0].toUpperCase() + string.slice(1).toLowerCase();
   }
+
+  useEffect(() => {
+    document.getElementById('q').value = q;
+  }, [q]);
 
   return (
     <div id="shop-page">
       <div>
         <Form id="search-form" role="search">
           <input
-            id="search-bar"
+            id="q"
             type="search"
             aria-label="search products"
             placeholder="Search"
-            name="search-bar"
-            value={query}
+            name="q"
+            defaultValue={q}
             onChange={(e) => {
-              setQuery(e.target.value);
+              const isFirstSearch = q == null;
+              submit(e.currentTarget.form, {
+                replace: !isFirstSearch,
+              });
             }}
           />
           <select
-            name="categories"
-            id="categories"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            name="category"
+            id="category"
+            defaultValue={''}
+            onChange={(e) => {
+              submit(e.currentTarget.form);
+            }}
           >
-            <option value="all">All</option>
+            <option value="">All</option>
             {categories.map((category) => (
               <option key={category} value={category}>
                 {titleCase(category)}
@@ -47,24 +50,19 @@ export default function Shop() {
         </Form>
       </div>
       <div id="cards-container">
-        {(category
-          ? products.filter((product) => product.category === category)
-          : products
-        )
-          .filter(filterSearch)
-          .map((product) => (
-            <div key={product.id} className="card" tabIndex={0}>
-              <NavLink to={`${product.id}`}>
-                <img
-                  src={product.image}
-                  alt={product.description}
-                  className="cardImage"
-                />
-                <h2 className="cardTitle">{product.title}</h2>
-                <p className="cardPrice">${product.price}</p>
-              </NavLink>
-            </div>
-          ))}
+        {products.map((product) => (
+          <div key={product.id} className="card" tabIndex={0}>
+            <NavLink to={`${product.id}`}>
+              <img
+                src={product.image}
+                alt={product.description}
+                className="cardImage"
+              />
+              <h2 className="cardTitle">{product.title}</h2>
+              <p className="cardPrice">${product.price}</p>
+            </NavLink>
+          </div>
+        ))}
       </div>
     </div>
   );

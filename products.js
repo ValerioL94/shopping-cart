@@ -6,10 +6,23 @@ const fetchData = async (url) => {
   return response.json();
 };
 
-export async function getProducts() {
+export async function getProducts(category, query) {
+  function filterSearch(product) {
+    if (product.title.toLowerCase().includes(query.toLowerCase()))
+      return product;
+  }
   try {
-    const products = await fetchData('https://fakestoreapi.com/products');
-    return products;
+    const categories = await fetchData(
+      'https://fakestoreapi.com/products/categories'
+    );
+    let products = await fetchData('https://fakestoreapi.com/products');
+    if (category) {
+      products = products.filter((product) => product.category === category);
+    }
+    if (query) {
+      products = products.filter(filterSearch);
+    }
+    return { products, categories };
   } catch (err) {
     throw new Error(err.message);
   }

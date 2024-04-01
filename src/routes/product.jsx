@@ -8,15 +8,15 @@ export default function Product() {
     let rounded = Math.floor(rate);
     switch (rounded) {
       case 0 || 1:
-        return '٭';
+        return '★';
       case 2:
-        return '٭٭';
+        return '★★';
       case 3:
-        return '٭٭٭';
+        return '★★★';
       case 4:
-        return '٭٭٭٭';
+        return '★★★★';
       case 5:
-        return '٭٭٭٭٭';
+        return '★★★★★';
     }
   }
 
@@ -44,9 +44,15 @@ export default function Product() {
           </h3>
         </div>
         <div className="form-wrapper">
-          <Form>
-            <input type="number" min={1} max={99} defaultValue={1} />
-            <button type="submit">Add to cart</button>
+          <Form onSubmit={(e) => e.preventDefault()}>
+            <input
+              name="quantity"
+              type="number"
+              min={1}
+              max={99}
+              defaultValue={1}
+            />
+            <button type="button">Add to cart</button>
           </Form>
         </div>
       </div>
