@@ -1,13 +1,31 @@
-import { useLoaderData } from 'react-router-dom';
+/* eslint-disable react/prop-types */
 import '../styles/cart.css';
+// import PropTypes from 'prop-types';
 
-export default function Cart() {
-  const { cart } = useLoaderData();
-
+function Cart({ cart, setCart }) {
   return (
     <div id="cart-page">
       <h1>Your cart </h1>
-      <div id="cart-products">{cart ? '' : <p>Cart is empty</p>}</div>
+      <button onClick={() => setCart([])}>Remove</button>
+      <div id="cart-products">
+        {cart ? (
+          cart.map((item) => (
+            <div key={item.id}>
+              <h1>{item.title}</h1>
+              <h2>{item.quantity}</h2>
+            </div>
+          ))
+        ) : (
+          <p>Cart is empty</p>
+        )}
+      </div>
     </div>
   );
 }
+
+// Cart.propTypes = {
+//   cart: PropTypes.object,
+//   setCart: PropTypes.object,
+// };
+
+export default Cart;

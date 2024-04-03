@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
 import { Form, useLoaderData } from 'react-router-dom';
 import '../styles/product.css';
+// import PropTypes from 'prop-types';
 
-export default function Product() {
+function Product({ cart, setCart }) {
   const { product } = useLoaderData();
 
   function getRating(rate) {
@@ -18,6 +20,14 @@ export default function Product() {
       case 5:
         return '★★★★★';
     }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setCart([
+      ...cart,
+      { ...product, quantity: e.currentTarget.quantity.value },
+    ]);
   }
 
   return (
@@ -44,18 +54,26 @@ export default function Product() {
           </h3>
         </div>
         <div className="form-wrapper">
-          <Form onSubmit={(e) => e.preventDefault()}>
+          <Form onSubmit={handleSubmit}>
             <input
+              id="quantity"
               name="quantity"
               type="number"
               min={1}
               max={99}
               defaultValue={1}
             />
-            <button type="button">Add to cart</button>
+            <button type="submit">Add to cart</button>
           </Form>
         </div>
       </div>
     </div>
   );
 }
+
+// Product.propTypes = {
+//   cart: PropTypes.object,
+//   setCart: PropTypes.object,
+// };
+
+export default Product;
