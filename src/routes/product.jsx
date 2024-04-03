@@ -21,13 +21,20 @@ function Product({ cart, setCart }) {
         return '★★★★★';
     }
   }
-
   function handleSubmit(e) {
     e.preventDefault();
-    setCart([
-      ...cart,
-      { ...product, quantity: e.currentTarget.quantity.value },
-    ]);
+    let quantity = e.currentTarget.quantity.value;
+    if (cart.length === 0) {
+      setCart([...cart, { ...product, quantity: quantity }]);
+    } else {
+      let newCart = [...cart];
+      let index = newCart.findIndex((item) => item.id === product.id);
+      index !== -1
+        ? (newCart[index].quantity =
+            parseInt(newCart[index].quantity) + parseInt(quantity))
+        : newCart.push({ ...product, quantity: quantity });
+      setCart(newCart);
+    }
   }
 
   return (

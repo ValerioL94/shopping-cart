@@ -12,14 +12,12 @@
   display: flex;
   flex-direction: column;
   min-height: 300px;
-  min-width: 200px;
   max-width: 600px;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid rgba(91, 112, 159, 255);
   box-shadow: 1px 1px 5px 1px rgba(91, 112, 159, 255);
   border-radius: 10px;
   background-color: white;
-  box-sizing: border-box;
 }
 #product img {
   align-self: center;
@@ -78,8 +76,17 @@
 }
 
 @media screen and (max-width: 500px) {
+  #product {
+    padding: 5px;
+  }
+  #product .title {
+    font-size: 1.3rem;
+  }
+  #product .description {
+    font-size: 1.15rem;
+  }
   #product img {
     max-height: 250px;
-    max-width: 250px;
+    max-width: 100%;
   }
 }

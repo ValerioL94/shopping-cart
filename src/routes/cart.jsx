@@ -6,11 +6,11 @@ function Cart({ cart, setCart }) {
   return (
     <div id="cart-page">
       <h1>Your cart </h1>
-      <button onClick={() => setCart([])}>Remove</button>
       <div id="cart-products">
-        {cart ? (
+        {cart.length > 0 ? (
           cart.map((item) => (
-            <div key={item.id}>
+            <div key={item.id} className="product">
+              <img src={item.image} alt={item.title} />
               <h1>{item.title}</h1>
               <h2>{item.quantity}</h2>
             </div>
