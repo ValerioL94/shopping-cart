@@ -28,16 +28,37 @@ function Product({ cart, setCart }) {
     } else {
       let newCart = [...cart];
       let index = newCart.findIndex((item) => item.id === product.id);
-      index !== -1
-        ? (newCart[index].quantity =
-            parseInt(newCart[index].quantity) + parseInt(quantity))
-        : newCart.push({ ...product, quantity: quantity });
+      if (index !== -1) {
+        if (parseInt(newCart[index].quantity) + parseInt(quantity) <= 10) {
+          newCart[index].quantity =
+            parseInt(newCart[index].quantity) + parseInt(quantity);
+        } else {
+          return alert(
+            'You already have 10 units of this product in your cart.'
+          );
+        }
+      } else {
+        newCart.push({ ...product, quantity: quantity });
+      }
+      showNotification();
       setCart(newCart);
     }
   }
 
+  function showNotification() {
+    let notification = document.getElementById('tn-box');
+    notification.classList.add('tn-box-active');
+    setTimeout(() => {
+      notification.classList.remove('tn-box-active');
+    }, 2100);
+  }
+
   return (
     <div id="product-page">
+      <div id="tn-box" className="tn-box-color-1">
+        <p>Product/s added to the cart!</p>
+        <div className="tn-progress"></div>
+      </div>
       <div id="product">
         <img src={product.image} alt={product.description} />
         <h1 className="title">{product.title}</h1>
@@ -66,7 +87,7 @@ function Product({ cart, setCart }) {
               name="quantity"
               type="number"
               min={1}
-              max={99}
+              max={10}
               defaultValue={1}
             />
             <button type="submit">Add to cart</button>

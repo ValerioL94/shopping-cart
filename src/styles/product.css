@@ -55,24 +55,103 @@
 .form-wrapper form {
   display: flex;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
 }
 .form-wrapper input,
 .form-wrapper button {
-  border: 2px solid rgba(91, 112, 159, 255);
-  outline-color: rgba(91, 112, 159, 255);
+  border: 2px solid black;
+  outline-color: black;
   border-radius: 10px;
   height: 30px;
   box-sizing: border-box;
   padding: 5px 10px;
   font-weight: 600;
   font-size: 1rem;
-  transition: background-color linear 0.2s;
+  transition: background-color linear 0.3s;
+}
+.form-wrapper button {
+  background-color: rgba(230, 196, 150, 255);
+  cursor: pointer;
 }
 .form-wrapper button:hover,
 .form-wrapper button:focus {
-  background-color: rgba(230, 196, 150, 255);
-  cursor: pointer;
+  color: white;
+  background-color: rgba(91, 112, 159, 255);
+}
+
+#tn-box {
+  color: white;
+  box-sizing: border-box;
+  height: 80px;
+  min-width: 200px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  padding: 15px;
+  text-align: left;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  cursor: default;
+  display: none;
+}
+
+.tn-box-color-1 {
+  background: rgba(91, 112, 159, 255);
+  border: 1px solid black;
+}
+
+.tn-progress {
+  width: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  bottom: 5px;
+  left: 2%;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05),
+    0 -1px 0 rgba(255, 255, 255, 0.6);
+}
+#tn-box.tn-box-active {
+  display: block;
+  animation: fadeOut 2s linear;
+}
+
+#tn-box.tn-box-active .tn-progress {
+  animation: runProgress 1s linear forwards 0.5s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  99% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes runProgress {
+  0% {
+    width: 0%;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    width: 96%;
+    background: rgba(255, 255, 255, 1);
+  }
 }
 
 @media screen and (max-width: 500px) {
