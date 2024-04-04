@@ -17,7 +17,7 @@ function Cart({ cart, setCart }) {
 
   return (
     <div id="cart-page">
-      <h1>Your cart </h1>
+      <h1 style={{ fontSize: '2.5rem' }}>Your cart </h1>
       <div id="cart-items">
         {cart.length > 0 ? (
           cart.map((item) => (
@@ -66,7 +66,7 @@ function Cart({ cart, setCart }) {
             </div>
           ))
         ) : (
-          <p>Cart is empty</p>
+          <p style={{ fontWeight: '600', fontSize: '1.3rem' }}>Cart is empty</p>
         )}
       </div>
       <div id="checkout">
@@ -77,7 +77,15 @@ function Cart({ cart, setCart }) {
             .reduce((sum, item) => sum + item.price * item.quantity, 0)
             .toFixed(2)}
         </h2>
-        <button>Checkout &gt;</button>
+        <button
+          onClick={() =>
+            cart.length > 0
+              ? (alert('Thanks for buying, Bye!'), setCart([]))
+              : alert('The cart is empty and this is a fake site so...')
+          }
+        >
+          Checkout &gt;
+        </button>
       </div>
     </div>
   );

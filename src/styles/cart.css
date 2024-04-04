@@ -144,5 +144,6 @@ button {
     padding: 10px;
     min-width: 200px;
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
