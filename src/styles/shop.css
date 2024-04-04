@@ -56,14 +56,14 @@ html {
 .card a {
   display: grid;
   gap: 10px;
-  grid-template-rows: 200px auto 30px;
+  grid-template-rows: 200px 100px 50px;
   border-radius: 10px;
   min-height: 350px;
   width: 250px;
   padding: 10px;
   background-color: white;
-  border: 1px solid black;
-  box-shadow: 1px 1px 5px 1px black;
+  border: 1px solid grey;
+  box-shadow: 1px 1px 5px 1px grey;
   cursor: pointer;
   transition: transform 0.1s linear;
   align-items: center;

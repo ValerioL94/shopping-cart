@@ -91,6 +91,23 @@ i {
 nav a > span {
   width: 70px;
 }
+.cart-wrapper {
+  position: relative;
+}
+.total-items {
+  font-size: 15px;
+  position: absolute;
+  top: 0;
+  left: 125%;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+}
 #sidebar nav a:hover {
   background: white;
 }
@@ -147,5 +164,19 @@ nav a > span {
   #sidebar .empty-links,
   #sidebar .github-link > p {
     display: none;
+  }
+  #sidebar .total-items {
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
   }
 }

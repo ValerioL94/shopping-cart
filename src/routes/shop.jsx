@@ -59,7 +59,7 @@ export default function Shop() {
                 className="cardImage"
               />
               <h2 className="cardTitle">{product.title}</h2>
-              <p className="cardPrice">${product.price}</p>
+              <p className="cardPrice">${product.price.toFixed(2)}</p>
             </NavLink>
           </div>
         ))}

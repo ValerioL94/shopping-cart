@@ -2,7 +2,7 @@
 import { Outlet, NavLink, Link, useNavigation } from 'react-router-dom';
 
 export default function Root({ cart }) {
-  let total = cart.reduce((sum, item) => sum + parseInt(item.quantity), 0);
+  let items = cart.reduce((sum, item) => sum + parseInt(item.quantity), 0);
   const navigation = useNavigation();
   return (
     <>
@@ -45,10 +45,10 @@ export default function Root({ cart }) {
                 }
               >
                 <span>Cart</span>
-                <img src="/assets/icons/icons8-cart-48.png" alt="cart" />
-                <span style={{ position: 'absolute', left: '75%' }}>
-                  ({total})
-                </span>
+                <div className="cart-wrapper">
+                  <img src="/assets/icons/icons8-cart-48.png" alt="cart" />
+                  <span className="total-items">{items}</span>
+                </div>
               </NavLink>
             </li>
           </ul>
