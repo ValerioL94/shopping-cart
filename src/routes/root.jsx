@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import { Outlet, NavLink, Link, useNavigation } from 'react-router-dom';
 
-export default function Root() {
+export default function Root({ cart }) {
+  let total = cart.reduce((sum, item) => sum + item.quantity, 0);
   const navigation = useNavigation();
   return (
     <>
@@ -44,6 +46,9 @@ export default function Root() {
               >
                 <span>Cart</span>
                 <img src="/assets/icons/icons8-cart-48.png" alt="cart" />
+                <span style={{ position: 'absolute', left: '75%' }}>
+                  ({total})
+                </span>
               </NavLink>
             </li>
           </ul>
