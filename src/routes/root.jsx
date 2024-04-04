@@ -2,7 +2,7 @@
 import { Outlet, NavLink, Link, useNavigation } from 'react-router-dom';
 
 export default function Root({ cart }) {
-  let total = cart.reduce((sum, item) => sum + item.quantity, 0);
+  let total = cart.reduce((sum, item) => sum + parseInt(item.quantity), 0);
   const navigation = useNavigation();
   return (
     <>

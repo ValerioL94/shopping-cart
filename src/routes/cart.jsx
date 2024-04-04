@@ -27,7 +27,7 @@ function Cart({ cart, setCart }) {
               <img src={item.image} alt={item.title} />
               <h1>{item.title}</h1>
               <h2>Price: ${item.price} </h2>
-              <h2>Total: ${Math.floor(item.quantity * item.price)} </h2>
+              <h2>Total: ${(item.quantity * item.price).toFixed(2)} </h2>
 
               <div className="item-quantity">
                 <button
@@ -59,10 +59,9 @@ function Cart({ cart, setCart }) {
         <h1>Subtotal</h1>
         <h2>
           $
-          {cart.reduce(
-            (sum, item) => sum + Math.floor(item.price * item.quantity),
-            0
-          )}{' '}
+          {cart
+            .reduce((sum, item) => sum + item.price * item.quantity, 0)
+            .toFixed(2)}
         </h2>
       </div>
     </div>
