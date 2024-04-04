@@ -1,20 +1,19 @@
-/* eslint-disable react/prop-types */
 import '../styles/cart.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function Cart({ cart, setCart }) {
   function handleIncrement(item) {
     let newCart = [...cart];
     let index = newCart.findIndex((i) => i.id === item.id);
-    if (item.quantity < 99)
-      newCart[index].quantity = newCart[index].quantity + 1;
+    if (item.quantity < 10)
+      newCart[index].quantity = parseInt(newCart[index].quantity) + 1;
     setCart(newCart);
   }
   function handleDecrement(item) {
     let newCart = [...cart];
     let index = newCart.findIndex((i) => i.id === item.id);
     if (item.quantity > 1)
-      newCart[index].quantity = newCart[index].quantity - 1;
+      newCart[index].quantity = parseInt(newCart[index].quantity) - 1;
     setCart(newCart);
   }
   return (
@@ -68,9 +67,9 @@ function Cart({ cart, setCart }) {
   );
 }
 
-// Cart.propTypes = {
-//   cart: PropTypes.object,
-//   setCart: PropTypes.object,
-// };
+Cart.propTypes = {
+  cart: PropTypes.array,
+  setCart: PropTypes.func,
+};
 
 export default Cart;

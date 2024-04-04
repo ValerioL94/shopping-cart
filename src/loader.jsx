@@ -5,7 +5,7 @@ export async function productsLoader({ request }) {
   const category = url.searchParams.get('category');
   const q = url.searchParams.get('q');
   const { products, categories } = await getProducts(category, q);
-  return { products, categories, q };
+  return { products, categories, category, q };
 }
 
 export async function productLoader({ params }) {

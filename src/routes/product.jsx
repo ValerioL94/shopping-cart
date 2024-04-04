@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import { Form, useLoaderData } from 'react-router-dom';
 import '../styles/product.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function Product({ cart, setCart }) {
   const { product } = useLoaderData();
@@ -78,9 +77,9 @@ function Product({ cart, setCart }) {
   );
 }
 
-// Product.propTypes = {
-//   cart: PropTypes.object,
-//   setCart: PropTypes.object,
-// };
+Product.propTypes = {
+  cart: PropTypes.array,
+  setCart: PropTypes.func,
+};
 
 export default Product;
