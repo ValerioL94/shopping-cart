@@ -18,3 +18,18 @@
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.quote {
+  animation: loopQuote 5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes loopQuote {
+  0% {
+    opacity: 0;
+  }
+  33%,
+  100% {
+    opacity: 1;
+  }
+}
