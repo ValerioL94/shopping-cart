@@ -6,6 +6,7 @@ export default function Home() {
     '"You need it, We got it"',
     `"If you don't find it, just keep looking"`,
     'Why buy tomorrow what you can buy today?',
+    'Your satisfaction is our priority',
   ];
 
   function randomInt(max) {
