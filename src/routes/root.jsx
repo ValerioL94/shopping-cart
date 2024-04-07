@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Outlet, NavLink, Link, useNavigation } from 'react-router-dom';
 
 export default function Root({ cart }) {

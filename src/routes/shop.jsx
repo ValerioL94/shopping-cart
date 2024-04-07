@@ -1,6 +1,5 @@
 import '../styles/shop.css';
 import { useLoaderData, Form, NavLink, useSubmit } from 'react-router-dom';
-// import { useEffect } from 'react';
 
 export default function Shop() {
   const { products, categories, category, q } = useLoaderData();
@@ -9,10 +8,6 @@ export default function Shop() {
   function titleCase(string) {
     return string[0].toUpperCase() + string.slice(1).toLowerCase();
   }
-
-  // useEffect(() => {
-  //   document.getElementById('q').value = q;
-  // }, [q]);
 
   return (
     <div id="shop-page">
