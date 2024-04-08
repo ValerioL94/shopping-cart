@@ -46,7 +46,7 @@ export default function Shop() {
       </div>
       <div id="cards-container">
         {products.map((product) => (
-          <div key={product.id} className="card" tabIndex={0}>
+          <div key={product.id} className="card">
             <NavLink to={`${product.id}`}>
               <img
                 src={product.image}
