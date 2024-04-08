@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import '../styles/cart.css';
 import PropTypes from 'prop-types';
+import { useMemo } from 'react';
 
 function Cart({ cart, setCart }) {
   function handleClick(item, action) {
@@ -14,6 +15,11 @@ function Cart({ cart, setCart }) {
     }
     setCart(newCart);
   }
+  const totalPrice = useMemo(() => {
+    return cart
+      .reduce((sum, item) => sum + item.price * item.quantity, 0)
+      .toFixed(2);
+  }, [cart]);
 
   return (
     <div id="cart-page">
@@ -71,12 +77,7 @@ function Cart({ cart, setCart }) {
       </div>
       <div id="checkout">
         <h1>Subtotal: </h1>
-        <h2 style={{ color: 'red' }}>
-          $
-          {cart
-            .reduce((sum, item) => sum + item.price * item.quantity, 0)
-            .toFixed(2)}
-        </h2>
+        <h2 style={{ color: 'red' }}>${totalPrice}</h2>
         <button
           onClick={() =>
             cart.length > 0
